@@ -1,34 +1,37 @@
-const additionFunction = function (number1, number2) {
-    return number1 + number2;
+function farLeft(CC) {
+    return ((CC / 4) - 2 * CC - 1);
 }
 
-const subtractionFunction = function (number1, number2) {
-    return number1 - number2;
+function middle(YY) {
+    return (5 * YY / 4);
 }
 
-// Create a calculator where the user specifies which action to be taken
+function farRight(MM) {
+    return (26 * (MM + 1) / 10);
+}
 
-var firstNumber = prompt("Enter the first number");
-var secondNumber = prompt("Enter the second number");
-var arithmeticOperation = prompt("Enter either (+, -)");
+var birthdayYear = Number(prompt("Which year were you born?"))
+var gender = prompt("What is your gender?")
 
-// Convert our strings to numbers
-var firstNumberConverted = parseInt(firstNumber);
-var secondNumberConverted = parseInt(secondNumber);
+const farLeftResult = farLeft(10)
+const farRightResult = farRight(10)
+const middleResult = middle(birthdayYear)
 
-if (arithmeticOperation == "+") {
-    let result = additionFunction(firstNumberConverted, secondNumberConverted);
-    alert(result);
-} else if (arithmeticOperation == "-") {
-    let result = subtractionFunction(firstNumberConverted, secondNumberConverted);
-    alert(result);
+var calculationResult = (farLeftResult + middleResult + farRightResult + 10) % 7
+const wholeNumber = calculationResult.toPrecision(1);
+alert(wholeNumber);
+
+// calculationResult = 2
+const maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
+const femaleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
+
+let result;
+if (gender == "male") {
+    result = maleNames[wholeNumber]
+} else if (gender == "female") {
+    result = femaleNames[wholeNumber]
 } else {
-    alert("Please enter a valid operation");
+    alert('Enter a valid gender')
 }
-if (weatherToday == "cloudy") {
-    console.log('Perhaps bring a jacket');
-} else if (weatherToday == "cloudy") {
 
-} else {
-    console.log('You\'ll be fine with a Tshirt');
-}
+alert(`Your day name is ${result}`,)
